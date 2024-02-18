@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="http" />
+        </intent>
+    </queries>
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.KnoxPatch">
+
+        <uses-library
+            android:name="com.samsung.device.lite"
+            android:required="true" />
+
+        <!-- SamsungBasicInteraction -->
+        <meta-data
+            android:name="SamsungBasicInteraction"
+            android:value="SEP10" />
+
+        <!-- Samsung Color Theme -->
+        <meta-data
+            android:name="theming-meta"
+            android:value="sep_color_theme_meta" />
+        <meta-data
+            android:name="theming-meta-xml"
+            android:value="@xml/sep_color_theme_meta"/>
+
+        <!-- Xposed -->
+        <meta-data
+            android:name="xposedmodule"
+            android:value="true" />
+        <meta-data
+            android:name="xposeddescription"
+            android:value="@string/module_description" />
+        <meta-data
+            android:name="xposedminversion"
+            android:value="93" />
+        <meta-data
+            android:name="xposedscope"
+            android:resource="@array/scope" />
+
+        <activity
+            android:name=".ui.activity.InfoActivity"
+            android:launchMode="singleTask"
+            android:exported="true">
+
+            <!-- Samsung Icon Color Theme -->
+            <meta-data
+                android:name="com.sec.android.app.launcher.icon_theme"
+                android:value="themeColor" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="de.robv.android.xposed.category.MODULE_SETTINGS" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="com.sec.android.intent.action.SEC_APPLICATION_SETTINGS" />
+                <category android:name="com.sec.android.intent.category.SEC_APPLICATION_SETTINGS" />
+            </intent-filter>
+
+        </activity>
+
+    </application>
+
+</manifest>
